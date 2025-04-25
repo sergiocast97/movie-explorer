@@ -1,6 +1,6 @@
 import { useShows } from '../hooks/useShows'
 
-export default function Example() {
+export default function Shows() {
   const { data: shows, isLoading, isError } = useShows()
 
   if (isLoading) {
@@ -14,12 +14,9 @@ export default function Example() {
   return (
     <>
       <div>
-        <h1 className="text-2xl font-bold">TV Shows</h1>
         <ul>
           {shows.map((show: any) => (
-            <li key={show.id} className="my-2">
-              {show.name}
-            </li>
+            <li key={show.id}>{show.name}</li>
           ))}
         </ul>
       </div>
