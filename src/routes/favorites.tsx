@@ -8,7 +8,15 @@ export const Route = createFileRoute('/favorites')({
 
 function Favorites() {
   // Favorite shows
-  const { data: favoriteShows, isLoading, isError } = useFavoriteShows()
+  const {
+    data: favoriteShows,
+    isLoading,
+    isError,
+  } = useFavoriteShows() as {
+    data: Array<Show> | undefined
+    isLoading: boolean
+    isError: boolean
+  }
 
   // Loading state
   if (isLoading) {
