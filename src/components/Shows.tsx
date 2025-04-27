@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useShows } from '../hooks/useShows'
-import type { Show } from '../hooks/useShows'
+import type { Show } from '../hooks/useShow'
 
 export default function Shows() {
   // Offset for Pagination

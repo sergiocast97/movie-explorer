@@ -10,7 +10,7 @@ export interface Show {
 }
 
 /**
- * Function to fetch show by ID
+ * Function to fetch show by ID from TVMaze
  * @param id ID of the show
  * @returns Individual show data
  */
@@ -23,9 +23,9 @@ const fetchShowById = async (id: number) => {
 }
 
 /**
- *
+ * Hook to fetch a show by ID
  * @param id ID of the show
- * @returns Show object
+ * @returns Favorite shows query
  */
 export const useShow = (id: number) => {
   return useQuery({

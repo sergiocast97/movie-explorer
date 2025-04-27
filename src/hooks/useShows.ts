@@ -1,10 +1,5 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query'
-
-export interface Show {
-  id: number
-  name: string
-  summary: string
-}
+import type { Show } from './useShow'
 
 /**
  * Function to fetch a specicic number of shows from the TVmaze API
@@ -23,10 +18,10 @@ const fetchShows = async (offset: number, limit: number) => {
 }
 
 /**
- * Hook to fetch a list of shows from TvMaze
+ * Hook to fetch a list of shows
  * @param offset First show
  * @param limit Last show
- * @returns Query object
+ * @returns List of shows query
  */
 export const useShows = (offset: number, limit: number) => {
   return useQuery({
