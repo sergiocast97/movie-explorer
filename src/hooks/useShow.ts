@@ -1,17 +1,36 @@
 import { useQuery } from '@tanstack/react-query'
 
-const fetchShowById = async (id: number) => {
-  const response = await fetch(`https://api.tvmaze.com/shows/${id}`)
-  if (!response.ok) {
-    throw new Error('Network response was not ok')
+export interface Show {
+  id: number
+  name: string
+  summary: string
+  image: {
+    medium: string
   }
-  return response.json()
 }
 
+/**
+ * Function to fetch show by ID
+ * @param id ID of the show
+ * @returns Individual show data
+ */
+const fetchShowById = async (id: number) => {
+  const response = await fetch(`https://api.tvmaze.com/shows/${id}`)
+  // Handle error
+  if (!response.ok) throw new Error('Network response was not ok')
+  // Return show
+  return (await response.json()) as Show
+}
+
+/**
+ *
+ * @param id ID of the show
+ * @returns Show object
+ */
 export const useShow = (id: number) => {
   return useQuery({
     queryKey: ['show', id],
     queryFn: () => fetchShowById(id),
-    enabled: !!id, // Ensures the query only runs if an ID is provided
+    enabled: !!id, // Only fetch if ID
   })
 }
