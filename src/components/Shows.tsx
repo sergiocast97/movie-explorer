@@ -8,6 +8,9 @@ export default function Shows() {
   const [offset, setOffset] = useState(0)
   // Pagination limit
   const limit = 20
+  // Accumulated list of shows
+  const [allShows, setAllShows] = useState<Array<Show>>([])
+
   // Fetch shows through hook
   const {
     data: shows,
@@ -16,11 +19,9 @@ export default function Shows() {
     isFetching,
   } = useShows(offset, limit)
 
-  const [allShows, setAllShows] = useState<Array<Show>>([]) // Shown shows
-
   // Add new shows to existing list
   useEffect(() => {
-    if (shows && !isFetching) {
+    if (shows) {
       setAllShows((prev) => [...prev, ...shows])
     }
   }, [shows])
@@ -39,9 +40,13 @@ export default function Shows() {
     <>
       <div>
         <ul>
-          {allShows.map((show: any) => (
-            <Link to="/show/$showId" params={{ showId: show.id }}>
-              <li key={show.id}>{show.name}</li>
+          {allShows.map((show: Show) => (
+            <Link
+              to="/show/$showId"
+              params={{ showId: show.id.toString() }}
+              key={show.id}
+            >
+              <li>{show.name}</li>
             </Link>
           ))}
         </ul>

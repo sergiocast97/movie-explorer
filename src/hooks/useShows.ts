@@ -28,5 +28,6 @@ export const useShows = (offset: number, limit: number) => {
     queryKey: ['shows', offset, limit],
     queryFn: () => fetchShows(offset, limit),
     placeholderData: keepPreviousData,
+    staleTime: 1000 * 60 * 5, // 5 minutes
   })
 }
