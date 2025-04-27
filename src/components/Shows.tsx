@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { useShows } from '../hooks/useShows'
 import type { Show } from '../hooks/useShow'
@@ -39,7 +40,9 @@ export default function Shows() {
       <div>
         <ul>
           {allShows.map((show: any) => (
-            <li key={show.id}>{show.name}</li>
+            <Link to="/show/$showId" params={{ showId: show.id }}>
+              <li key={show.id}>{show.name}</li>
+            </Link>
           ))}
         </ul>
       </div>

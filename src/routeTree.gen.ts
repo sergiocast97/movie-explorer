@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as FavoritesImport } from './routes/favorites'
 import { Route as IndexImport } from './routes/index'
+import { Route as ShowShowIdImport } from './routes/show/$showId'
 
 // Create/Update Routes
 
@@ -25,6 +26,12 @@ const FavoritesRoute = FavoritesImport.update({
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ShowShowIdRoute = ShowShowIdImport.update({
+  id: '/show/$showId',
+  path: '/show/$showId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -46,6 +53,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FavoritesImport
       parentRoute: typeof rootRoute
     }
+    '/show/$showId': {
+      id: '/show/$showId'
+      path: '/show/$showId'
+      fullPath: '/show/$showId'
+      preLoaderRoute: typeof ShowShowIdImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -54,36 +68,41 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/favorites': typeof FavoritesRoute
+  '/show/$showId': typeof ShowShowIdRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/favorites': typeof FavoritesRoute
+  '/show/$showId': typeof ShowShowIdRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/favorites': typeof FavoritesRoute
+  '/show/$showId': typeof ShowShowIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/favorites'
+  fullPaths: '/' | '/favorites' | '/show/$showId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/favorites'
-  id: '__root__' | '/' | '/favorites'
+  to: '/' | '/favorites' | '/show/$showId'
+  id: '__root__' | '/' | '/favorites' | '/show/$showId'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FavoritesRoute: typeof FavoritesRoute
+  ShowShowIdRoute: typeof ShowShowIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FavoritesRoute: FavoritesRoute,
+  ShowShowIdRoute: ShowShowIdRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,7 +116,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/favorites"
+        "/favorites",
+        "/show/$showId"
       ]
     },
     "/": {
@@ -105,6 +125,9 @@ export const routeTree = rootRoute
     },
     "/favorites": {
       "filePath": "favorites.tsx"
+    },
+    "/show/$showId": {
+      "filePath": "show/$showId.tsx"
     }
   }
 }
