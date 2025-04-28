@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router'
+import { stripHtml } from '../utils/stripHtml'
 
 interface ShowCardProps {
   id: number
@@ -16,7 +17,7 @@ export default function ShowCard({ id, name, image, summary }: ShowCardProps) {
     >
       <img src={image} alt={name} />
       <h2>{name}</h2>
-      <p>{summary}</p>
+      <p>{stripHtml(summary)}</p>
     </Link>
   )
 }

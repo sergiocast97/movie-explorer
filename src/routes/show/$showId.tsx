@@ -1,5 +1,6 @@
 import { createFileRoute, useParams } from '@tanstack/react-router'
 import { useShow } from '../../hooks/useShow'
+import { stripHtml } from '../../utils/stripHtml'
 import type { Show } from '../../types/show'
 import FavoriteButton from '@/components/FavoriteButton'
 
@@ -49,7 +50,7 @@ function RouteComponent() {
         <p>{show.ended}</p>
         <p>{show.officialSite}</p>
         <p>{show.rating.average}</p>
-        <p>{show.summary}</p>
+        <p>{stripHtml(show.summary)}</p>
         <FavoriteButton id={parseInt(showId)} />
       </div>
     </>
