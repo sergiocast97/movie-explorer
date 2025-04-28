@@ -5,7 +5,6 @@
  */
 export interface Show {
   id: number // Show ID on TV Maze
-  url: string // Page URL
   name: string // Show name
   type: string // Type (Scripted, Animated, Reality...)
   language: string // Original language

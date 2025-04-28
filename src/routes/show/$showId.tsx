@@ -1,6 +1,7 @@
 import { createFileRoute, useParams } from '@tanstack/react-router'
 import { useShow } from '../../hooks/useShow'
 import type { Show } from '../../types/show'
+import FavoriteButton from '@/components/FavoriteButton'
 
 export const Route = createFileRoute('/show/$showId')({
   component: RouteComponent,
@@ -20,23 +21,37 @@ function RouteComponent() {
     isError: boolean
   }
 
+  // Loading state
   if (isLoading) {
-    return <div>Loading show details...</div>
+    return <div>Loading...</div>
   }
 
+  // Error state
   if (isError) {
-    return <div>Error fetching show details.</div>
+    return <div>Error fetching shows.</div>
   }
 
+  // In case show is not found
   if (!show) {
-    return <div>Show not found.</div>
+    return <div>No show data available.</div>
   }
 
   return (
-    <div>
-      <h1>{show.name}</h1>
-      <p>{show.summary}</p>
-      <img src={show.image.medium} alt={show.name} />
-    </div>
+    <>
+      <div>
+        <img src={show.image.original} alt={show.name} />
+        <h1 className="">{show.name}</h1>
+        <p>{show.type}</p>
+        <p>{show.language}</p>
+        <p>{show.genres.join(', ')}</p>
+        <p>{show.status}</p>
+        <p>{show.premiered}</p>
+        <p>{show.ended}</p>
+        <p>{show.officialSite}</p>
+        <p>{show.rating.average}</p>
+        <p>{show.summary}</p>
+        <FavoriteButton id={parseInt(showId)} />
+      </div>
+    </>
   )
 }
