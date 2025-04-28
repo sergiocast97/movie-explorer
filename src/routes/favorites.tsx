@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useFavoriteShows } from '../hooks/useFavoriteShows'
+import ShowCard from '../components/ShowCard'
 import type { Show } from '../types/show'
 
 export const Route = createFileRoute('/favorites')({
@@ -38,10 +39,13 @@ function Favorites() {
       <h1>Favorites</h1>
       <ul>
         {favoriteShows.map((show) => (
-          <li key={show.id}>
-            <h2>{show.name}</h2>
-            <img src={show.image.medium} alt={show.name} />
-          </li>
+          <ShowCard
+            key={show.id}
+            id={show.id}
+            name={show.name}
+            image={show.image.medium}
+            summary={show.summary}
+          />
         ))}
       </ul>
     </>
