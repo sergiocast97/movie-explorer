@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { getFavoriteShowIds } from '../utils/localStorage'
-import type { Show } from './useShow'
+import type { Show } from '../types/show'
 
 /**
  * Function to fetch favorite shows by ID from TVMaze

@@ -1,6 +1,6 @@
 import { createFileRoute, useParams } from '@tanstack/react-router'
 import { useShow } from '../../hooks/useShow'
-import type { Show } from '../../hooks/useShow'
+import type { Show } from '../../types/show'
 
 export const Route = createFileRoute('/show/$showId')({
   component: RouteComponent,

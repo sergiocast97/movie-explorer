@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { useShows } from '../hooks/useShows'
-import type { Show } from '../hooks/useShow'
+import type { Show } from '../types/show'
 
 export default function Shows() {
   // Offset for Pagination

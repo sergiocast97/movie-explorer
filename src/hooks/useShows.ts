@@ -1,5 +1,5 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query'
-import type { Show } from './useShow'
+import type { Show } from '../types/show'
 
 /**
  * Function to fetch a specicic number of shows from the TVmaze API

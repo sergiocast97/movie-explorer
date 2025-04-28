@@ -1,13 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-
-export interface Show {
-  id: number
-  name: string
-  summary: string
-  image: {
-    medium: string
-  }
-}
+import type { Show } from '../types/show'
 
 /**
  * Function to fetch show by ID from TVMaze

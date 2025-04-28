@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useFavoriteShows } from '../hooks/useFavoriteShows'
-import type { Show } from '../hooks/useShow'
+import type { Show } from '../types/show'
 
 export const Route = createFileRoute('/favorites')({
   component: Favorites,

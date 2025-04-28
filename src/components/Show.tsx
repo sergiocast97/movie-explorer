@@ -5,7 +5,7 @@ import {
   removeFavoriteShowId,
 } from '../utils/localStorage'
 import { useShow } from '../hooks/useShow'
-import type { Show } from '../hooks/useShow'
+import type { Show } from '../types/show'
 
 export default function Shows({ id }: { id: number }) {
   const {
