@@ -1,15 +1,90 @@
 @import 'tailwindcss';
 
-body {
-  @apply m-0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@custom-variant dark (&:where([data-theme="dark"] *));
+
+@theme {
+  /* Fonts */
+  --font-*: initial;
+  --font-heading: Poppins, Helvetica, sans-serif, system-ui;
+  --font-sans: Inter, Helvetica, sans-serif, system-ui;
+
+  /* Neutral Palette */
+  --color-neutral-000: #ffffff;
+  --color-neutral-050: #fafbff;
+  --color-neutral-100: #f0f1fa;
+  --color-neutral-200: #e1e4f2;
+  --color-neutral-300: #cacee5;
+  --color-neutral-400: #9fa3bf;
+  --color-neutral-500: #8589a6;
+  --color-neutral-600: #474b66;
+  --color-neutral-700: #3a3e59;
+  --color-neutral-800: #2e324d;
+  --color-neutral-900: #1a1d33;
+  --color-neutral-950: #0b0d17;
+
+  /* Light Theme */
+  --color-light-white: var(--color-neutral-000); /* Background */
+  --color-light-lightest: var(--color-neutral-050); /* Background Accent */
+  --color-light-light: var(--color-neutral-200); /* Stroke Weak */
+  --color-light-medium: var(--color-neutral-500); /* Stroke Strong */
+  --color-light-dark: var(--color-neutral-600); /* Text Copy */
+  --color-light-darkest: var(--color-neutral-900); /* Text Heading */
+
+  /* Dark Theme */
+  --color-dark-darkest: var(--color-neutral-900); /* Background */
+  --color-dark-dark: var(--color-neutral-800); /* Background Accent */
+  --color-dark-medium: var(--color-neutral-600); /* Stroke Weak */
+  --color-dark-light: var(--color-neutral-400); /* Stroke Strong */
+  --color-dark-lightest: var(--color-neutral-300); /* Text Copy */
+  --color-dark-white: var(--color-neutral-000); /* Text Heading */
+
+  /* Corner Radius */
+  --radius-small: 6px;
+  --radius-medium: 12px;
+  --radius-large: 16px;
+
+  /* Container Sizes */
+  --spacing-container-small: 592px;
+  --spacing-container-medium: 800px;
+  --spacing-container-large: 1008px;
 }
 
-code {
-  font-family:
-    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  max-width: var(--breakpoint-sm);
+  @variant md {
+    padding-inline: 2rem;
+    max-width: var(--breakpoint-md);
+  }
+  @variant lg {
+    max-width: var(--breakpoint-lg);
+  }
+  @variant xl {
+    max-width: var(--breakpoint-xl);
+  }
+}
+
+@layer utilities {
+  .btn-shadow {
+    box-shadow:
+      0px 1px 4px 0px rgba(58, 78, 102, 0.25),
+      0px 0px 0px 1px rgba(0, 0, 0, 0.25) inset,
+      0px -1px 0px 1px rgba(0, 0, 0, 0.1) inset,
+      0px 1px 0px 1px rgba(255, 255, 255, 0.25) inset;
+  }
+
+  .rendering-pixelated {
+    image-rendering: pixelated;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r bg-clip-text text-transparent;
+  }
+}
+
+@layer base {
+  html {
+    /*background-color: var(--color-dark-darkest); */
+  }
 }

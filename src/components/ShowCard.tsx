@@ -17,7 +17,7 @@ export default function ShowCard({ id, name, image, summary }: ShowCardProps) {
     >
       <img src={image} alt={name} />
       <h2>{name}</h2>
-      <p>{stripHtml(summary)}</p>
+      <p className="line-clamp-3">{stripHtml(summary)}</p>
     </Link>
   )
 }
