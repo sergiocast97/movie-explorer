@@ -35,11 +35,9 @@ if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-      <div className="container py-4 md:py-8">
-        <TanstackQuery.Provider>
-          <RouterProvider router={router} />
-        </TanstackQuery.Provider>
-      </div>
+      <TanstackQuery.Provider>
+        <RouterProvider router={router} />
+      </TanstackQuery.Provider>
     </StrictMode>,
   )
 }
