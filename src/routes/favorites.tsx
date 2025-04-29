@@ -36,8 +36,13 @@ function Favorites() {
 
   return (
     <section className="container py-8 lg:py-16">
-      <h1 className="text-5xl font-bold pb-8">Favorites</h1>
-      <div className="max-w-container-large mx-auto grid gap-8 grid-cols-2 md:grid-cols-3">
+      <div className="pb-8 md:pb-12">
+        <h1 className="text-5xl font-bold pb-2">Favorites</h1>
+        <p className="text-lg text-light-dark dark:text-dark-lightest max-w-prose ">
+          Here's a list of your fave shows!
+        </p>
+      </div>
+      <div className="max-w-container-large mx-auto grid gap-x-8 gap-y-12 grid-cols-2 md:grid-cols-3">
         {favoriteShows.map((show) => (
           <ShowCard
             key={show.id}

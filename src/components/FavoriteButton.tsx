@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid'
+import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline'
 import {
   addFavoriteShowId,
   getFavoriteShowIds,
@@ -26,8 +28,12 @@ export default function FavoriteButton({ id }: { id: number }) {
   }
 
   return (
-    <button onClick={toggleFavorite}>
-      {isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+    <button className="cursor-pointer p-1" onClick={toggleFavorite}>
+      {isFavorite ? (
+        <HeartIconSolid className="size-8 text-light-darkest dark:text-dark-lightest" />
+      ) : (
+        <HeartIconOutline className="size-8 text-light-darkest dark:text-dark-lightest" />
+      )}
     </button>
   )
 }

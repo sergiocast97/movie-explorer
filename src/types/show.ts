@@ -14,7 +14,7 @@ export interface Show {
   ended: string // End date (YYYY-MM-DD)
   officialSite: string // Official site URL
   rating: {
-    average: number // Average rating
+    average: number | null // Average rating
   }
   image: {
     medium: string // Preview
