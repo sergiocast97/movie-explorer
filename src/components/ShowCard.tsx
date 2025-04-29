@@ -13,11 +13,22 @@ export default function ShowCard({ id, name, image, summary }: ShowCardProps) {
     <Link
       to="/show/$showId"
       params={{ showId: id.toString() }}
-      className="show-card"
+      className="w-full"
     >
-      <img src={image} alt={name} />
-      <h2>{name}</h2>
-      <p className="line-clamp-3">{stripHtml(summary)}</p>
+      <img
+        src={image}
+        alt={name}
+        className="rounded-large aspect-[3/4] w-full object-cover"
+        loading="lazy"
+      />
+      <div className="text-light-dark dark:text-dark-lightest p-2 pt-4">
+        <h3 className="text-light-darkest dark:text-dark-white text-base font-bold md:text-lg">
+          {name}
+        </h3>
+        <p className=" mt-1 text-sm md:text-base line-clamp-3">
+          {stripHtml(summary)}
+        </p>
+      </div>
     </Link>
   )
 }

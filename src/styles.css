@@ -61,7 +61,7 @@
     max-width: var(--breakpoint-lg);
   }
   @variant xl {
-    max-width: var(--breakpoint-xl);
+    max-width: var(--breakpoint-lg);
   }
 }
 

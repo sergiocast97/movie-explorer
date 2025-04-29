@@ -12,7 +12,7 @@ function App() {
   // Offset for Pagination
   const [offset, setOffset] = useState(0)
   // Pagination limit
-  const limit = 20
+  const limit = 18
   // Accumulated list of shows
   const [allShows, setAllShows] = useState<Array<Show>>([])
 
@@ -43,18 +43,16 @@ function App() {
 
   return (
     <>
-      <div>
-        <ul>
-          {allShows.map((show: Show) => (
-            <ShowCard
-              key={show.id}
-              id={show.id}
-              name={show.name}
-              image={show.image.medium}
-              summary={show.summary}
-            />
-          ))}
-        </ul>
+      <div className="max-w-container-large mx-auto grid gap-8 md:grid-cols-4">
+        {allShows.map((show: Show) => (
+          <ShowCard
+            key={show.id}
+            id={show.id}
+            name={show.name}
+            image={show.image.medium}
+            summary={show.summary}
+          />
+        ))}
       </div>
       <div>
         <button

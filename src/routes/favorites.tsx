@@ -35,9 +35,9 @@ function Favorites() {
   }
 
   return (
-    <>
+    <div>
       <h1>Favorites</h1>
-      <ul>
+      <div className="max-w-container-large mx-auto grid gap-8 md:grid-cols-4">
         {favoriteShows.map((show) => (
           <ShowCard
             key={show.id}
@@ -47,7 +47,7 @@ function Favorites() {
             summary={show.summary}
           />
         ))}
-      </ul>
-    </>
+      </div>
+    </div>
   )
 }

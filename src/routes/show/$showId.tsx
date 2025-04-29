@@ -39,19 +39,23 @@ function RouteComponent() {
 
   return (
     <>
-      <div>
-        <img src={show.image.original} alt={show.name} />
-        <h1 className="">{show.name}</h1>
-        <p>{show.type}</p>
-        <p>{show.language}</p>
-        <p>{show.genres.join(', ')}</p>
-        <p>{show.status}</p>
-        <p>{show.premiered}</p>
-        <p>{show.ended}</p>
-        <p>{show.officialSite}</p>
-        <p>{show.rating.average}</p>
-        <p>{stripHtml(show.summary)}</p>
-        <FavoriteButton id={parseInt(showId)} />
+      <div className="mx-auto grid gap-6 md:gap-8 lg:grid-cols-2">
+        <div className="">
+          <img src={show.image.original} alt={show.name} />
+        </div>
+        <div>
+          <FavoriteButton id={parseInt(showId)} />
+          <h1 className="text-5xl font-bold">{show.name}</h1>
+          <p>Type: {show.type}</p>
+          <p>Language: {show.language}</p>
+          <p>Genres: {show.genres.join(', ')}</p>
+          <p>Status: {show.status}</p>
+          <p>Premiered: {show.premiered}</p>
+          <p>Ended: {show.ended}</p>
+          <p>Official Site: {show.officialSite}</p>
+          <p>Rating: {show.rating.average}</p>
+          <p>{stripHtml(show.summary)}</p>
+        </div>
       </div>
     </>
   )
