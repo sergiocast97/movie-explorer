@@ -7,7 +7,7 @@ import type { Show } from '../types/show'
  * @param limit Last show
  * @returns List of shows
  */
-const fetchShows = async (offset: number, limit: number) => {
+const fetchShowList = async (offset: number, limit: number) => {
   const response = await fetch('https://api.tvmaze.com/shows')
   // Handling errors
   if (!response.ok) throw new Error('Network response was not ok')
@@ -23,10 +23,10 @@ const fetchShows = async (offset: number, limit: number) => {
  * @param limit Last show
  * @returns List of shows query
  */
-export const useShows = (offset: number, limit: number) => {
+export const useShowList = (offset: number, limit: number) => {
   return useQuery({
     queryKey: ['shows', offset, limit],
-    queryFn: () => fetchShows(offset, limit),
+    queryFn: () => fetchShowList(offset, limit),
     placeholderData: keepPreviousData,
     staleTime: 1000 * 60 * 5, // 5 minutes
   })

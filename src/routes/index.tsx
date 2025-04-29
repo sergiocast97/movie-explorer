@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import { useShows } from '../hooks/useShows'
+import { useShowList } from '../hooks/useShowList'
 import ShowCard from '../components/ShowCard'
 import type { Show } from '../types/show'
 
@@ -22,7 +22,7 @@ function App() {
     isLoading,
     isError,
     isFetching,
-  } = useShows(offset, limit)
+  } = useShowList(offset, limit)
 
   // Add new shows to existing list
   useEffect(() => {
