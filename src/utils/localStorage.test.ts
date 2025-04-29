@@ -5,8 +5,6 @@ import {
   removeFavoriteShowId,
 } from '@/utils/localStorage'
 
-const FAVORITES_KEY = 'favoriteShows'
-
 describe('localStorage utilities', () => {
   beforeEach(() => {
     // Clear localStorage before each test

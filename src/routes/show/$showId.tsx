@@ -2,7 +2,7 @@ import { createFileRoute, useParams } from '@tanstack/react-router'
 import type { Show } from '@/types/show'
 import { useShow } from '@/hooks/useShow'
 import { stripHtml } from '@/utils/stripHtml'
-import FavoriteButton from '@/components/FavoriteButton'
+// import FavoriteButton from '@/components/FavoriteButton'
 
 export const Route = createFileRoute('/show/$showId')({
   component: RouteComponent,
