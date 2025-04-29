@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Hello from './hello'
+import Hello from '@/components/hello'
 
 describe('App tests', () => {
   it('should render the title', () => {

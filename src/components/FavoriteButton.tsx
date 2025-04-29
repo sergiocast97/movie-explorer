@@ -3,7 +3,7 @@ import {
   addFavoriteShowId,
   getFavoriteShowIds,
   removeFavoriteShowId,
-} from '../utils/localStorage'
+} from '@/utils/localStorage'
 
 export default function FavoriteButton({ id }: { id: number }) {
   // Favorite status
